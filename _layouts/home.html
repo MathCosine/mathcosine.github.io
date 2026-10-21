@@ -2,10 +2,10 @@
 layout: default
 ---
 <div class="intro">
-  <figure class="polaroid" style="--focus: {{ page.photo_focus | default: '50% 35%' }}">
+  <figure class="polaroid" style="--focus: {{ page.photo_focus | default: '50% 35%' }}; --ratio: {{ page.photo_shape | default: '4 / 5' }}">
     {% include cat-peek.html %}
     {%- if page.photo and page.photo != "" %}
-    <img src="{{ page.photo | relative_url }}" alt="a photo of {{ site.author | default: site.name }}">
+    <img src="{{ page.photo | relative_url }}" alt="{{ page.photo_alt | default: 'a photo of me' }}">
     {%- else %}
     <div class="photo-soon">{% include cat-box.html %}<span>photo soon</span></div>
     {%- endif %}

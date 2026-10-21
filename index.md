@@ -3,13 +3,15 @@ layout: home
 title: home
 heading: hi! i'm thomas ni
 
-# your photo. put the file in assets/img/ and write its path here,
-# e.g. photo: assets/img/me.jpg  (leave it empty for the cat-in-a-box)
-photo: ""
-# it gets cropped to fit automatically. if your face gets cut off,
-# move the focus: "50% 20%" = keep more of the top, "50% 60%" = more of the bottom
-photo_focus: 50% 35%
-photo_caption: me, probably
+# the picture in the frame. put the file in assets/img/ and write its path here
+# (leave it empty for the cat-in-a-box)
+photo: assets/img/sky.jpg
+photo_alt: a painting of a lake between mountains under a pink, starry sky
+photo_caption: not a photo of me
+# frame shape: 1 / 1 is square, 4 / 5 is a portrait. the picture gets cropped
+# to fit; "photo_focus" picks which part stays ("50% 20%" = more of the top)
+photo_shape: 1 / 1
+photo_focus: 50% 50%
 
 socials_intro: roughly sorted by how fast i'll reply.
 socials:

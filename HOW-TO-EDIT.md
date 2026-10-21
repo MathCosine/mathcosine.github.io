@@ -16,7 +16,7 @@ You can edit everything on github.com: open a file, press the pencil icon, chang
 | to change... | edit this |
 | --- | --- |
 | your bio | `index.md`: the text below the second `---` |
-| your photo | upload it to `assets/img/`, then set `photo: assets/img/yourfile.jpg` in `index.md` |
+| the picture in the frame | upload it to `assets/img/`, then set `photo: assets/img/yourfile.jpg` in `index.md` (also `photo_caption`, and `photo_shape` for square vs. tall) |
 | email / links under "say hi" | `socials:` in `index.md` |
 | site name, tagline | `_config.yml` |
 | the tabs along the top | `tabs:` in `_config.yml` |
@@ -27,7 +27,7 @@ You can edit everything on github.com: open a file, press the pencil icon, chang
 
 **Handout categories:** at the top of `notes.md` there's a `categories:` list (name, icon, and an optional `about` line). Give each note a `category:` that matches one of the names. A new name you haven't listed just gets its own section at the bottom. A category only shows up once it has at least one note, and once there are two or more, little buttons appear at the top to filter by category.
 
-The photo gets cropped to fit automatically, so you don't need to crop it yourself. If your face ends up cut off, change `photo_focus` in `index.md`. `50% 20%` keeps more of the top and `50% 60%` keeps more of the bottom.
+The picture gets cropped to fit the frame automatically, so you don't need to crop it yourself. If the wrong part gets cut off, change `photo_focus` in `index.md`. `50% 20%` keeps more of the top and `50% 60%` keeps more of the bottom.
 
 **One YAML gotcha:** in the bits between the `---` lines, if a value has a `: ` (colon + space) or starts with a special character, wrap it in quotes. For example, `thing: "re: zero"`.
 
