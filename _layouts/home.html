@@ -1,0 +1,38 @@
+---
+layout: default
+---
+<div class="intro">
+  <figure class="polaroid" style="--focus: {{ page.photo_focus | default: '50% 35%' }}">
+    {% include cat-peek.html %}
+    {%- if page.photo and page.photo != "" %}
+    <img src="{{ page.photo | relative_url }}" alt="a photo of {{ site.name }}">
+    {%- else %}
+    <div class="photo-soon">{% include cat-box.html %}<span>photo soon</span></div>
+    {%- endif %}
+    <figcaption>{{ page.photo_caption | default: "me" }}</figcaption>
+  </figure>
+
+  <h1 class="page-title hello">{{ page.heading | default: site.name }}</h1>
+  <div class="prose">
+{{ content }}
+  </div>
+</div>
+
+{%- if page.socials %}
+<section class="say-hi">
+  <h2>{{ page.socials_title | default: "say hi" }}</h2>
+  {%- if page.socials_intro %}<p>{{ page.socials_intro }}</p>{% endif %}
+  <ul class="socials">
+    {%- for s in page.socials %}
+    <li><span class="soc-label">{% include icon.html name=s.icon %}{{ s.label }}</span>{% if s.url %}<a href="{{ s.url }}">{{ s.text }}</a>{% else %}<span>{{ s.text }}</span>{% endif %}</li>
+    {%- endfor %}
+  </ul>
+</section>
+{%- endif %}
+
+{%- for block in page.locked %}
+<section class="locked-section">
+  <h2>{{ block.title }} {% include icon.html name="lock" %}</h2>
+  {% include locked.html name=block.name hint=block.hint %}
+</section>
+{%- endfor %}

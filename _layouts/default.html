@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+{% include head.html %}
+</head>
+<body>
+<a class="skip" href="#main">skip to the good part</a>
+<div class="wrap">
+  <header class="site-top">
+    <div>
+      <a class="site-title" href="{{ '/' | relative_url }}">{{ site.name }}</a>
+      <p class="tagline">{{ site.tagline }}</p>
+    </div>
+    <button class="theme-toggle" type="button" aria-label="switch between day and night">
+      {% include icon.html name="moon" %}{% include icon.html name="sun" %}
+    </button>
+  </header>
+
+  <div class="sheet">
+    <nav class="tabs" aria-label="pages">
+      {%- assign here = page.url | relative_url -%}
+      {%- for tab in site.tabs -%}
+      {%- assign tab_url = tab.url | relative_url -%}
+      {%- assign color = forloop.index0 | modulo: 4 %}
+      <a class="tab tab-{{ color }}{% if here == tab_url %} is-active{% endif %}" href="{{ tab_url }}"{% if here == tab_url %} aria-current="page"{% endif %}>{% include icon.html name=tab.icon %}<span>{{ tab.title }}</span></a>
+      {%- endfor %}
+    </nav>
+    <main class="card" id="main">
+      {% include cat-sit.html %}
+      {{ content }}
+    </main>
+  </div>
+
+  {% include footer.html %}
+</div>
+</body>
+</html>

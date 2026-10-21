@@ -1,0 +1,29 @@
+---
+layout: default
+---
+<h1 class="page-title">{{ page.heading | default: page.title }}</h1>
+<div class="prose">
+{{ content }}
+</div>
+
+{%- if page.notes and page.notes.size > 0 %}
+<ul class="notes">
+  {%- for n in page.notes %}
+  {%- if n.file %}{% assign href = n.file | relative_url %}{% else %}{% assign href = n.link %}{% endif %}
+  {%- assign note_icon = n.icon | default: "paper" %}
+  <li class="note">
+    <span class="note-icon">{% include icon.html name=note_icon %}</span>
+    <div>
+      <a class="note-title" href="{{ href }}">{{ n.title }}</a>
+      <p class="note-meta">
+        {%- if n.date %}<time>{{ n.date | date: '%b %Y' | downcase }}</time>{% endif -%}
+        {%- if n.tag %}<span class="pill">{{ n.tag }}</span>{% endif -%}
+      </p>
+      {%- if n.note %}<p class="note-text">{{ n.note }}</p>{% endif %}
+    </div>
+  </li>
+  {%- endfor %}
+</ul>
+{%- else %}
+<div class="empty">{% include cat-box.html %}<p>{{ page.empty | default: "nothing here yet. the cat is sitting where the handouts go." }}</p></div>
+{%- endif %}

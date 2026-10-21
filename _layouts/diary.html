@@ -1,0 +1,47 @@
+---
+layout: default
+---
+<h1 class="page-title">{{ page.heading | default: page.title }}</h1>
+<div class="prose">
+{{ content }}
+</div>
+
+{%- assign entries = site.diary | sort: "date" | reverse -%}
+{%- assign locked_entries = entries | where_exp: "e", "e.secret" -%}
+
+{%- if locked_entries.size > 0 %}
+<div class="locked diary-lock" data-diary>
+  <div class="locked-cover">
+    {% include cat-sleep.html %}
+    <form class="unlock">
+      <label for="pw-diary">{{ page.hint | default: "the diary is napping. password?" }}</label>
+      <div class="unlock-row"><input type="password" id="pw-diary" autocomplete="current-password" required><button class="btn" type="submit">wake up</button></div>
+      <p class="unlock-msg" aria-live="polite"></p>
+    </form>
+  </div>
+  <div class="diary-open" hidden>
+    <span>{% include icon.html name="book" %} all unlocked. hi :3</span>
+    <button class="btn small lock-again" type="button">lock it again</button>
+  </div>
+</div>
+{%- endif %}
+
+<ol class="entries">
+{%- for e in entries %}
+  {%- if e.secret %}
+  <li class="entry is-locked" id="{{ e.slug }}" hidden data-blob="{{ e.secret | escape }}" data-file="{{ e.relative_path }}" data-date="{{ e.date | date: '%Y-%m-%d' }}" data-nice-date="{{ e.date | date: '%b %-d, %Y' | downcase }}"></li>
+  {%- else %}
+  <li class="entry" id="{{ e.slug }}">
+    <details{% if forloop.first %} open{% endif %}>
+      <summary><span class="mood" data-mood="{{ e.mood }}"></span><span class="entry-title">{{ e.title }}</span><time datetime="{{ e.date | date: '%Y-%m-%d' }}">{{ e.date | date: '%b %-d, %Y' | downcase }}</time></summary>
+      <div class="entry-body prose">{{ e.content }}</div>
+      <p class="entry-tools owner-only"><a href="https://github.com/{{ site.github_repo }}/edit/{{ site.github_branch }}/{{ e.relative_path }}">{% include icon.html name="pencil" %}edit on github</a></p>
+    </details>
+  </li>
+  {%- endif %}
+{%- endfor %}
+</ol>
+
+{%- if entries.size == 0 %}
+<div class="empty">{% include cat-box.html %}<p>no entries yet.</p></div>
+{%- endif %}

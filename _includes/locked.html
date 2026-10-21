@@ -1,0 +1,16 @@
+{%- comment -%}
+  a password-locked block. use: {% include locked.html name="achievements" %}
+  the scrambled text lives in _data/locked.yml under the same name.
+{%- endcomment -%}
+{%- assign blob = site.data.locked[include.name] -%}
+<div class="locked" data-block="{{ include.name }}" data-blob="{{ blob | escape }}">
+<div class="locked-cover">
+{% include cat-sleep.html %}
+<form class="unlock">
+<label for="pw-{{ include.name }}">{{ include.hint | default: "this part's napping. password?" }}</label>
+<div class="unlock-row"><input type="password" id="pw-{{ include.name }}" autocomplete="current-password" required><button class="btn" type="submit">wake up</button></div>
+<p class="unlock-msg" aria-live="polite"></p>
+</form>
+</div>
+<div class="locked-content" hidden></div>
+</div>

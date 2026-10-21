@@ -1,0 +1,57 @@
+# ───────────────────────────────────────────────
+#  site settings. (you have to re-save / re-push for
+#  changes here to show up, github rebuilds in ~1 min)
+# ───────────────────────────────────────────────
+
+name: mathcosine
+tagline: math, cats, and other stuff
+description: mathcosine's little corner of the internet
+
+# the tabs along the top, in order.
+# to add one: make a new .md file (see HOW-TO-EDIT.md) and add it here.
+# icons you can use are listed in HOW-TO-EDIT.md too.
+tabs:
+  - title: home
+    url: /
+    icon: house
+  - title: diary
+    url: /diary/
+    icon: book
+  - title: notes
+    url: /notes/
+    icon: paper
+  - title: favorites
+    url: /favorites/
+    icon: heart
+
+# where this site lives on github. the /write/ page uses this
+# to open the right file for you.
+github_repo: MathCosine/mathcosine
+github_branch: main
+
+# the site lives at mathcosine.github.io/mathcosine, so baseurl is /mathcosine.
+# if you ever rename the repo to mathcosine.github.io, change baseurl to ""
+url: https://mathcosine.github.io
+baseurl: /mathcosine
+
+# shared salt for the password locks. leave this alone.
+lock_salt: "FmhvBW13/rhj5zmFHqZamA=="
+
+timezone: America/Los_Angeles
+
+# ── you shouldn't need to touch anything below ──
+markdown: kramdown
+kramdown:
+  input: GFM
+  math_engine: mathjax
+
+collections:
+  diary:
+    output: false
+
+exclude:
+  - README.md
+  - HOW-TO-EDIT.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor

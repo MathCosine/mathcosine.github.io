@@ -1,0 +1,36 @@
+---
+layout: default
+---
+<h1 class="page-title">{{ page.heading | default: page.title }}</h1>
+<div class="prose">
+{{ content }}
+</div>
+
+{%- if page.lately %}
+<section class="lately-wrap">
+  <h2>{{ page.lately_title | default: "lately" }}</h2>
+  <ul class="lately">
+    {%- for l in page.lately %}
+    <li>{% include icon.html name=l.icon %}<span class="lately-what">{{ l.what }}</span><span class="lately-thing">{{ l.thing }}</span></li>
+    {%- endfor %}
+  </ul>
+</section>
+{%- endif %}
+
+{%- if page.favorites %}
+<section>
+  <h2>{{ page.favorites_title | default: "favorite things" }}</h2>
+  <ul class="favs">
+    {%- for f in page.favorites %}
+    <li class="fav fav-{{ forloop.index0 | modulo: 4 }}">
+      <span class="fav-icon">{% include icon.html name=f.icon %}</span>
+      <span class="fav-words">
+        <span class="fav-what">{{ f.what }}</span>
+        <span class="fav-thing">{{ f.thing }}</span>
+        {%- if f.note %}<span class="fav-note">{{ f.note }}</span>{% endif %}
+      </span>
+    </li>
+    {%- endfor %}
+  </ul>
+</section>
+{%- endif %}
