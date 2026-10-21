@@ -20,9 +20,11 @@ You can edit everything on github.com: open a file, press the pencil icon, chang
 | site name, tagline | `_config.yml` |
 | the tabs along the top | `tabs:` in `_config.yml` |
 | favorites + "lately" | `favorites.md` |
-| notes & handouts | `notes.md`, and put the pdfs in `files/` |
+| notes & handouts (+ their categories) | `notes.md`, and put the pdfs in `files/` |
 | diary intro line | `diary.md` |
 | colors | top of `assets/css/style.css` (light colors first, then the night ones) |
+
+**Handout categories:** at the top of `notes.md` there's a `categories:` list (name, icon, and an optional `about` line). Give each note a `category:` that matches one of the names. A new name you haven't listed just gets its own section at the bottom. A category only shows up once it has at least one note, and once there are two or more, little buttons appear at the top to filter by category.
 
 The photo gets cropped to fit automatically, so you don't need to crop it yourself. If your face ends up cut off, change `photo_focus` in `index.md`. `50% 20%` keeps more of the top and `50% 60%` keeps more of the bottom.
 
@@ -69,7 +71,7 @@ Then add it to `tabs:` in `_config.yml`:
     icon: star
 ```
 
-**Icons you can use:** house, book, paper, heart, star, paw, fish, music, mail, code, pencil, lock, yarn, sushi, speech, pi, atom, cap, link, sun, moon, leaf
+**Icons you can use:** house, book, paper, heart, star, paw, fish, music, mail, code, pencil, lock, yarn, sushi, speech, pi, atom, cap, link, sun, moon, leaf, graph
 
 ## math
 

@@ -7,23 +7,53 @@ layout: default
 </div>
 
 {%- if page.notes and page.notes.size > 0 %}
-<ul class="notes">
-  {%- for n in page.notes %}
-  {%- if n.file %}{% assign href = n.file | relative_url %}{% else %}{% assign href = n.link %}{% endif %}
-  {%- assign note_icon = n.icon | default: "paper" %}
-  <li class="note">
-    <span class="note-icon">{% include icon.html name=note_icon %}</span>
-    <div>
-      <a class="note-title" href="{{ href }}">{{ n.title }}</a>
-      <p class="note-meta">
-        {%- if n.date %}<time>{{ n.date | date: '%b %Y' | downcase }}</time>{% endif -%}
-        {%- if n.tag %}<span class="pill">{{ n.tag }}</span>{% endif -%}
-      </p>
-      {%- if n.note %}<p class="note-text">{{ n.note }}</p>{% endif %}
-    </div>
-  </li>
+{%- comment -%} categories from the top of the page first, then any new ones the notes use {%- endcomment -%}
+{%- assign groups = page.notes | group_by: "category" -%}
+{%- assign order = "" | split: "" -%}
+{%- for c in page.categories -%}{%- assign order = order | push: c.name -%}{%- endfor -%}
+{%- for g in groups -%}{%- unless order contains g.name -%}{%- assign order = order | push: g.name -%}{%- endunless -%}{%- endfor -%}
+
+{%- if groups.size > 1 %}
+<div class="chips" role="group" aria-label="show only">
+  <button type="button" class="chip" data-cat="" aria-pressed="true">all <span class="count">{{ page.notes.size }}</span></button>
+  {%- for name in order %}
+  {%- assign g = groups | where: "name", name | first %}
+  {%- if g %}
+  <button type="button" class="chip" data-cat="{{ name | default: 'other' | slugify }}" aria-pressed="false">{{ name | default: "other" }} <span class="count">{{ g.size }}</span></button>
+  {%- endif %}
   {%- endfor %}
-</ul>
+</div>
+{%- endif %}
+
+{%- for name in order %}
+{%- assign g = groups | where: "name", name | first %}
+{%- if g %}
+{%- assign cat = page.categories | where: "name", name | first %}
+{%- assign cat_icon = cat.icon | default: "paper" %}
+<section class="note-group" data-cat="{{ name | default: 'other' | slugify }}">
+  <h2>{% include icon.html name=cat_icon %}{{ name | default: "other" }}</h2>
+  {%- if cat.about %}<p class="group-about">{{ cat.about }}</p>{% endif %}
+  <ul class="notes">
+    {%- for n in g.items %}
+    {%- if n.file %}{% assign href = n.file | relative_url %}{% else %}{% assign href = n.link %}{% endif %}
+    {%- assign note_icon = n.icon | default: "paper" %}
+    <li class="note">
+      <span class="note-icon">{% include icon.html name=note_icon %}</span>
+      <div>
+        <a class="note-title" href="{{ href }}">{{ n.title }}</a>
+        <p class="note-meta">
+          {%- if n.date %}<time>{{ n.date | date: '%b %Y' | downcase }}</time>{% endif -%}
+          {%- if n.tag %}<span class="pill">{{ n.tag }}</span>{% endif -%}
+        </p>
+        {%- if n.note %}<p class="note-text">{{ n.note }}</p>{% endif %}
+      </div>
+    </li>
+    {%- endfor %}
+  </ul>
+</section>
+{%- endif %}
+{%- endfor %}
+
 {%- else %}
 <div class="empty">{% include cat-box.html %}<p>{{ page.empty | default: "nothing here yet. the cat is sitting where the handouts go." }}</p></div>
 {%- endif %}

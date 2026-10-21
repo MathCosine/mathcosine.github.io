@@ -18,6 +18,9 @@ lately:
 # favorite things. "note" is the small grey line, it's optional.
 # icon names are listed in HOW-TO-EDIT.md
 favorites:
+  - what: kind of math
+    thing: discrete
+    icon: graph
   - what: class
     thing: real analysis
     icon: book

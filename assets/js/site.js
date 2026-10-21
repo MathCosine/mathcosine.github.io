@@ -69,6 +69,18 @@
     });
   }
 
+  // handout categories: tap a chip to show just that one
+  document.querySelectorAll('.chips').forEach(function (bar) {
+    bar.addEventListener('click', function (e) {
+      var chip = e.target.closest('.chip');
+      if (!chip) return;
+      bar.querySelectorAll('.chip').forEach(function (c) { c.setAttribute('aria-pressed', String(c === chip)); });
+      document.querySelectorAll('.note-group').forEach(function (g) {
+        g.hidden = !!chip.dataset.cat && g.dataset.cat !== chip.dataset.cat;
+      });
+    });
+  });
+
   // math on normal pages: $$x^2$$ or \( x \)
   if (window.MC) window.MC.typeset(document.querySelector('.card'));
 })();

@@ -1,7 +1,7 @@
 {%- comment -%}
   little doodle icons. use: {% include icon.html name="paw" %}
   names: house book paper heart star paw fish music mail code pencil lock
-         yarn sushi speech pi atom cap link sun moon leaf
+         yarn sushi speech pi atom cap link sun moon leaf graph
   anything else falls back to a paw.
 {%- endcomment -%}
 <svg class="icon icon-{{ include.name }}" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
@@ -46,6 +46,8 @@
 <circle cx="12" cy="12" r="4.2"/><path d="M12 3.2v2.2M12 18.6v2.2M3.2 12h2.2M18.6 12h2.2M5.8 5.8l1.5 1.5M16.7 16.7l1.5 1.5M5.8 18.2l1.5-1.5M16.7 7.3l1.5-1.5"/>
 {%- when "moon" -%}
 <path d="M18.6 14.6A7.4 7.4 0 0 1 9.4 5.4a7.4 7.4 0 1 0 9.2 9.2z"/><path d="M16.6 4.4v2.4M15.4 5.6h2.4"/>
+{%- when "graph" -%}
+<path d="M12 4.4 4.8 12l7.2 7.6 7.2-7.6zM12 4.4v15.2"/><circle class="dot" cx="12" cy="4.4" r="2.3"/><circle class="dot" cx="4.8" cy="12" r="2.3"/><circle class="dot" cx="19.2" cy="12" r="2.3"/><circle class="dot" cx="12" cy="19.6" r="2.3"/>
 {%- when "leaf" -%}
 <path d="M5.4 18.6C4.6 11.2 9.4 5.6 18.8 5.2c.4 9.4-5.2 14.2-12.6 13.4z"/><path d="M5.4 18.6c3-3.6 6-6.4 9.4-8.6"/>
 {%- else -%}

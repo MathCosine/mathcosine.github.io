@@ -4,8 +4,9 @@
 # ───────────────────────────────────────────────
 
 name: mathcosine
+author: thomas ni
 tagline: math, cats, and other stuff
-description: mathcosine's little corner of the internet
+description: thomas ni's little corner of the internet
 
 # the tabs along the top, in order.
 # to add one: make a new .md file (see HOW-TO-EDIT.md) and add it here.

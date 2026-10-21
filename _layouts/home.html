@@ -5,7 +5,7 @@ layout: default
   <figure class="polaroid" style="--focus: {{ page.photo_focus | default: '50% 35%' }}">
     {% include cat-peek.html %}
     {%- if page.photo and page.photo != "" %}
-    <img src="{{ page.photo | relative_url }}" alt="a photo of {{ site.name }}">
+    <img src="{{ page.photo | relative_url }}" alt="a photo of {{ site.author | default: site.name }}">
     {%- else %}
     <div class="photo-soon">{% include cat-box.html %}<span>photo soon</span></div>
     {%- endif %}

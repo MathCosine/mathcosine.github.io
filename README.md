@@ -1,4 +1,4 @@
-### hi, i'm mathcosine :3
+### hi, i'm thomas (mathcosine) :3
 
 freshman at stanford ohs · stupid math enthusiast · cat person
 
