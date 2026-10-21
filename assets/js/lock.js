@@ -122,7 +122,8 @@
     var m = MOODS[name];
     if (!m) return '';
     return '<svg viewBox="0 0 36 32" aria-hidden="true">' +
-      '<path class="c-white" d="M6 15 5 2.6l9.4 6.2zM30 15l1-12.4-9.4 6.2z"/>' +
+      '<path class="c-white" d="M5.5 15C4.6 10 4.8 4.4 7.2 3.4 9 2.8 12 5.4 14.6 8.4ZM30.5 15C31.4 10 31.2 4.4 28.8 3.4 27 2.8 24 5.4 21.4 8.4Z"/>' +
+      '<path class="c-pink" d="M8 11.6C7.7 9 8 6.6 9 6.3 10 6 11.6 7.6 12.6 8.8ZM28 11.6C28.3 9 28 6.6 27 6.3 26 6 24.4 7.6 23.4 8.8Z"/>' +
       '<ellipse class="c-white" cx="18" cy="18" rx="13.4" ry="11.4"/>' + m.eyes +
       '<path class="c-nose" d="M16.8 18.2h2.4L18 19.6z"/>' +
       '<path class="c-line thin" d="' + m.mouth + '"/>' + (m.extra || '') + '</svg>';

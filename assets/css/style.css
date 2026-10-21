@@ -262,7 +262,7 @@ input:focus, textarea:focus { outline: 2.5px dashed var(--link-line); outline-of
 .c-stripe { fill: none; stroke: var(--cat-stripe); stroke-width: 2.4; stroke-linecap: round; }
 .c-muzzle { fill: var(--cat-muzzle); }
 .c-pink { fill: var(--cat-pink); }
-.c-blush { fill: var(--cat-pink); opacity: .55; }
+.c-blush { fill: var(--cat-pink); opacity: .6; }
 .c-eye { fill: var(--cat-eye); filter: var(--cat-glow); }
 .c-nose { fill: var(--cat-pink); stroke: var(--cat-line); stroke-width: 1; stroke-linejoin: round; }
 .c-tail-o { fill: none; stroke: var(--cat-line); stroke-width: 9.4; stroke-linecap: round; }
@@ -270,7 +270,8 @@ input:focus, textarea:focus { outline: 2.5px dashed var(--link-line); outline-of
 .c-tail-w { stroke: var(--cat-white); }
 .c-tail-t { stroke: var(--cat-tabby); }
 
-.eyes ellipse, .eyes-open ellipse { transform-box: fill-box; transform-origin: center; animation: blink 5.5s infinite; }
+.eye { transform-box: fill-box; transform-origin: center; animation: blink 5.5s infinite; }
+.c-shine { fill: #fff; }
 @keyframes blink { 0%, 93%, 100% { transform: scaleY(1); } 95.5% { transform: scaleY(.1); } }
 
 .ear { transform-box: fill-box; transform-origin: 50% 100%; }
@@ -286,7 +287,7 @@ input:focus, textarea:focus { outline: 2.5px dashed var(--link-line); outline-of
 .sit-cat .hit { fill: transparent; pointer-events: all; cursor: pointer; }
 .sit-cat .tail { transform-origin: 56px 66px; animation: swish 3.6s ease-in-out infinite; }
 @keyframes swish { 0%, 100% { transform: rotate(-4deg); } 50% { transform: rotate(5deg); } }
-.sit-cat .head { transform-origin: 42px 48px; transition: transform .35s cubic-bezier(.3, 1.8, .5, 1); }
+.sit-cat .head { transform-origin: 42px 52px; transition: transform .35s cubic-bezier(.3, 1.8, .5, 1); }
 .sit-cat:hover .head, .sit-cat.is-talking .head { transform: rotate(-8deg); }
 .sit-cat:hover .ear-r, .sit-cat.is-talking .ear-r { animation: twitch .45s ease-in-out; }
 .sit-bubble {
@@ -323,7 +324,7 @@ input:focus, textarea:focus { outline: 2.5px dashed var(--link-line); outline-of
 
 .polaroid {
   float: right; position: relative;
-  width: 210px; margin: 48px 4px 18px 26px; padding: 10px 10px 0;
+  width: 230px; margin: 48px 4px 18px 26px; padding: 10px 10px 0;
   background: #fff; color: #4a3931;
   border: 2px solid var(--border); border-radius: 6px;
   box-shadow: 0 5px 0 var(--lip);
@@ -338,7 +339,7 @@ input:focus, textarea:focus { outline: 2.5px dashed var(--link-line); outline-of
   border-radius: 2px;
 }
 .polaroid img, .photo-soon {
-  display: block; width: 100%; aspect-ratio: 4 / 5; border-radius: 3px;
+  display: block; width: 100%; aspect-ratio: var(--ratio, 4 / 5); border-radius: 3px;
   object-fit: cover; object-position: var(--focus, 50% 35%);
   background: #ffe9d6;
 }
