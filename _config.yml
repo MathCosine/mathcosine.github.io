@@ -27,13 +27,13 @@ tabs:
 
 # where this site lives on github. the /write/ page uses this
 # to open the right file for you.
-github_repo: MathCosine/mathcosine
+github_repo: MathCosine/mathcosine.github.io
 github_branch: main
 
-# the site lives at mathcosine.github.io/mathcosine, so baseurl is /mathcosine.
-# if you ever rename the repo to mathcosine.github.io, change baseurl to ""
+# the site lives at mathcosine.github.io (the repo is named mathcosine.github.io).
+# if it ever moves to a repo with another name, set baseurl to "/that-name"
 url: https://mathcosine.github.io
-baseurl: /mathcosine
+baseurl: ""
 
 # shared salt for the password locks. leave this alone.
 lock_salt: "FmhvBW13/rhj5zmFHqZamA=="

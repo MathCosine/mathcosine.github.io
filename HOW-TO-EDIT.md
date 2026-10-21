@@ -4,11 +4,12 @@ You can edit everything on github.com: open a file, press the pencil icon, chang
 
 ## first time only: turn the site on
 
-1. On the repo page, go to **branches** and rename `claude/fervent-hypatia-tybdel` to `main` (pencil icon next to the branch). If you'd rather keep that branch, create `main` from it instead.
-2. Go to **Settings → Pages**. Under "Build and deployment", pick **Deploy from a branch**, then branch `main` and folder `/ (root)`, and press **Save**.
-3. A couple of minutes later it's live at **https://mathcosine.github.io/mathcosine/**
+1. Go to **Settings** (the General page). Under "Repository name", change `mathcosine` to `mathcosine.github.io` and press **Rename**. That name is what puts the site at https://mathcosine.github.io/ with nothing after it.
+2. Go to **branches** and rename `claude/fervent-hypatia-tybdel` to `main` (pencil icon next to the branch).
+3. Go to **Settings → Pages**. Under "Build and deployment", pick **Deploy from a branch**, then branch `main` and folder `/ (root)`, and press **Save**.
+4. A couple of minutes later it's live at **https://mathcosine.github.io/**
 
-(If you rename the repo to `mathcosine.github.io`, the site moves to https://mathcosine.github.io/. In that case, also set `baseurl: ""` in `_config.yml`.)
+(If the repo ever ends up with a different name, the site moves to https://mathcosine.github.io/that-name/. In that case, set `baseurl: "/that-name"` and `github_repo` in `_config.yml` to match.)
 
 ## where everything lives
 
@@ -35,7 +36,7 @@ The photo gets cropped to fit automatically, so you don't need to crop it yourse
 The diary and "the tryhard stuff" are locked with a password. They're scrambled (AES encryption) before they ever go in the repo, so people can't read them even by looking at the code. They can only see that something locked exists and what date a diary entry has.
 
 **Writing a diary entry:**
-1. Go to the site and unlock anything once. A **write** link then shows up at the bottom of every page (or just go to `/mathcosine/write/`).
+1. Go to the site and unlock anything once. A **write** link then shows up at the bottom of every page (or just go to `mathcosine.github.io/write/`).
 2. Write the entry, pick a mood, and keep "lock it" checked.
 3. Press **make the file**, then **save it on github**. GitHub opens with the file already filled in, so you just press **commit changes**.
 
@@ -85,4 +86,4 @@ gem install jekyll -v 3.10.0 kramdown-parser-gfm webrick
 jekyll serve
 ```
 
-Then open http://localhost:4000/mathcosine/
+Then open http://localhost:4000/
