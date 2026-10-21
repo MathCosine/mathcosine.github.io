@@ -37,7 +37,7 @@ i go by mathcosine on most of the internet. i'm a freshman at
 
 i'm a stupid math enthusiast. my favorite kind of math is discrete, my favorite class is
 real analysis, and my favorite way to do geometry is to give up and complex bash it.
-outside of math i like physics, sci bowl, and ai.
+outside of math i like physics and sci bowl.
 
 i am a proud californian. go california! my favorite song is snowdin town by toby fox,
 with cutie mew mew by toby fox and camellia as a close runner-up. my favorite food is sushi,

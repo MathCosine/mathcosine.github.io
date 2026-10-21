@@ -45,7 +45,7 @@ favorites:
     thing: complex bashing
     icon: pi
   - what: also into
-    thing: physics, sci bowl, ai
+    thing: physics & sci bowl
     icon: atom
 ---
 
