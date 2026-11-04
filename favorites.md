@@ -9,7 +9,7 @@ lately:
     thing: freshman year at stanford ohs
     icon: cap
   - what: listening to
-    thing: snowdin town (still)
+    thing: cupid (twin ver.), on repeat
     icon: music
   - what: eating
     thing: sushi, whenever possible
@@ -25,13 +25,16 @@ favorites:
     thing: real analysis
     icon: book
   - what: song
-    thing: snowdin town
-    note: toby fox
+    thing: cupid (twin ver.)
+    note: fifty fifty
     icon: music
-  - what: close runner-up
-    thing: cutie mew mew
-    note: toby fox & camellia
+  - what: close runners-up
+    thing: snowdin town & cutie mew mew
+    note: toby fox (+ camellia)
     icon: music
+  - what: genre
+    thing: science fiction
+    icon: rocket
   - what: languages
     thing: latin & japanese
     icon: speech
@@ -39,7 +42,7 @@ favorites:
     thing: sushi
     icon: sushi
   - what: animal
-    thing: cats, obviously
+    thing: cats
     icon: paw
   - what: way to solve geo
     thing: complex bashing

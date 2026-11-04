@@ -3,11 +3,11 @@ layout: default
 ---
 <div class="intro">
   <figure class="polaroid" style="--focus: {{ page.photo_focus | default: '50% 35%' }}; --ratio: {{ page.photo_shape | default: '4 / 5' }}">
-    {% include cat-peek.html %}
+    {% include moon-peek.html %}
     {%- if page.photo and page.photo != "" %}
     <img src="{{ page.photo | relative_url }}" alt="{{ page.photo_alt | default: 'a photo of me' }}">
     {%- else %}
-    <div class="photo-soon">{% include cat-box.html %}<span>photo soon</span></div>
+    <div class="photo-soon">{% include ufo.html %}<span>picture soon</span></div>
     {%- endif %}
     <figcaption>{{ page.photo_caption | default: "me" }}</figcaption>
   </figure>

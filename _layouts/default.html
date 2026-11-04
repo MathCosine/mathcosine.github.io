@@ -4,12 +4,13 @@
 {% include head.html %}
 </head>
 <body>
+<div class="sky" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><b class="shoot"></b></div>
 <a class="skip" href="#main">skip to the good part</a>
 <div class="wrap">
   <header class="site-top">
     <div>
       <a class="site-title" href="{{ '/' | relative_url }}">{{ site.name }}</a>
-      <p class="tagline">{{ site.tagline }}</p>
+      <p class="tagline">{{ site.tagline | escape }}</p>
     </div>
     <button class="theme-toggle" type="button" aria-label="switch between day and night">
       {% include icon.html name="moon" %}{% include icon.html name="sun" %}
@@ -20,13 +21,17 @@
     <nav class="tabs" aria-label="pages">
       {%- assign here = page.url | relative_url -%}
       {%- for tab in site.tabs -%}
-      {%- assign tab_url = tab.url | relative_url -%}
-      {%- assign color = forloop.index0 | modulo: 4 %}
+      {%- assign color = forloop.index0 | modulo: 4 -%}
+      {%- if tab.url contains "://" %}
+      <a class="tab tab-{{ color }}" href="{{ tab.url }}" target="_blank" rel="noopener">{% include icon.html name=tab.icon %}<span>{{ tab.title }}</span>{% include icon.html name="out" %}</a>
+      {%- else -%}
+      {%- assign tab_url = tab.url | relative_url %}
       <a class="tab tab-{{ color }}{% if here == tab_url %} is-active{% endif %}" href="{{ tab_url }}"{% if here == tab_url %} aria-current="page"{% endif %}>{% include icon.html name=tab.icon %}<span>{{ tab.title }}</span></a>
+      {%- endif -%}
       {%- endfor %}
     </nav>
     <main class="card" id="main">
-      {% include cat-sit.html %}
+      {% include planet.html %}
       {{ content }}
     </main>
   </div>

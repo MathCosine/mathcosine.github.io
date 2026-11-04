@@ -1,4 +1,4 @@
-/* password locks for the diary and the locked blocks.
+/* password locks for the locked blocks.
    a lock looks like v1.<salt>.<iv>.<data> (base64). the data is AES-GCM,
    the key comes from the password via PBKDF2-SHA256, so the repo only ever
    holds scrambled text. */
@@ -110,33 +110,6 @@
     else window.addEventListener('load', function () { if (window.renderMathInElement) window.renderMathInElement(el, MATH_OPTS); }, { once: true });
   }
 
-  // little cat faces for diary moods
-  var MOODS = {
-    happy:   { label: 'happy',   eyes: '<path class="c-line" d="M10.6 16.4q2.2-3 4.4 0M21 16.4q2.2-3 4.4 0"/>', mouth: 'M15.4 20.4q1.3 1.8 2.6 0 1.3 1.8 2.6 0' },
-    sleepy:  { label: 'sleepy',  eyes: '<path class="c-line" d="M10.6 15.8q2.2 2.4 4.4 0M21 15.8q2.2 2.4 4.4 0"/>', mouth: 'M16.6 20.6q1.4 1 2.8 0', extra: '<text x="29" y="7" class="mood-z">z</text>' },
-    grumpy:  { label: 'grumpy',  eyes: '<path class="c-line" d="M10.4 14.6l4.6 1.6M25.6 14.6 21 16.2"/><circle class="c-eye" cx="13" cy="17.4" r="1.2"/><circle class="c-eye" cx="23" cy="17.4" r="1.2"/>', mouth: 'M15.8 22q2.2-1.8 4.4 0' },
-    curious: { label: 'curious', eyes: '<circle class="c-eye" cx="12.8" cy="15.8" r="2.4"/><circle class="c-eye" cx="23.2" cy="15.8" r="2.4"/><circle fill="#fff" cx="13.6" cy="15" r=".8"/><circle fill="#fff" cx="24" cy="15" r=".8"/>', mouth: 'M18 20.2a1.2 1.2 0 1 0 .01 0' },
-    hungry:  { label: 'hungry',  eyes: '<path class="c-line" d="M10.6 16.4q2.2-3 4.4 0M21 16.4q2.2-3 4.4 0"/>', mouth: 'M15.4 20.2q1.3 1.8 2.6 0 1.3 1.8 2.6 0', extra: '<path class="c-pink" d="M17 21.4h2v1.6a1 1 0 0 1-2 0z"/>' }
-  };
-  function moodFace(name) {
-    var m = MOODS[name];
-    if (!m) return '';
-    return '<svg viewBox="0 0 36 32" aria-hidden="true">' +
-      '<path class="c-white" d="M5.5 15C4.6 10 4.8 4.4 7.2 3.4 9 2.8 12 5.4 14.6 8.4ZM30.5 15C31.4 10 31.2 4.4 28.8 3.4 27 2.8 24 5.4 21.4 8.4Z"/>' +
-      '<path class="c-pink" d="M8 11.6C7.7 9 8 6.6 9 6.3 10 6 11.6 7.6 12.6 8.8ZM28 11.6C28.3 9 28 6.6 27 6.3 26 6 24.4 7.6 23.4 8.8Z"/>' +
-      '<ellipse class="c-white" cx="18" cy="18" rx="13.4" ry="11.4"/>' + m.eyes +
-      '<path class="c-nose" d="M16.8 18.2h2.4L18 19.6z"/>' +
-      '<path class="c-line thin" d="' + m.mouth + '"/>' + (m.extra || '') + '</svg>';
-  }
-  function paintMoods(root) {
-    (root || document).querySelectorAll('.mood[data-mood]').forEach(function (el) {
-      if (!el.firstChild && MOODS[el.dataset.mood]) {
-        el.innerHTML = moodFace(el.dataset.mood);
-        el.title = MOODS[el.dataset.mood].label;
-      }
-    });
-  }
-
   function writeUrl(edit) {
     try { sessionStorage.setItem(EDIT, JSON.stringify(edit)); } catch (e) { /* the write page will just start empty */ }
     return (window.SITE ? window.SITE.base : '') + '/write/?edit=1';
@@ -156,23 +129,6 @@
     typeset(box);
   }
 
-  function showEntry(li, data) {
-    var edit = { kind: 'diary', file: li.dataset.file, date: li.dataset.date, title: data.title || '', mood: data.mood || '', body: data.body || '' };
-    li.innerHTML =
-      '<details><summary><span class="mood" data-mood="' + esc(data.mood || '') + '"></span>' +
-      '<span class="entry-title">' + esc(data.title || 'untitled') + '</span>' +
-      '<time datetime="' + esc(li.dataset.date) + '">' + esc(li.dataset.niceDate) + '</time></summary>' +
-      '<div class="entry-body prose">' + render(data.body) + '</div>' +
-      '<p class="entry-tools"><a class="edit-it">edit</a></p></details>';
-    var a = li.querySelector('.edit-it');
-    a.href = writeUrl(edit);
-    a.addEventListener('click', function () { writeUrl(edit); });
-    li.hidden = false;
-    li.classList.add('is-new');
-    paintMoods(li);
-    typeset(li);
-  }
-
   async function openAll(passwords) {
     var opened = 0;
     var items = document.querySelectorAll('[data-blob]:not(.is-open)');
@@ -183,13 +139,8 @@
       if (!r) continue;
       opened++;
       el.classList.add('is-open');
-      if (el.classList.contains('entry')) showEntry(el, r.data);
-      else wake(el, function (target, data) { return function () { showBlock(target, data); }; }(el, r.data));
+      wake(el, function (target, data) { return function () { showBlock(target, data); }; }(el, r.data));
     }
-    // the first open entry should be expanded, like the public ones
-    var first = document.querySelector('.entries .entry:not([hidden]) details');
-    if (opened && first && !document.querySelector('.entries details[open]')) first.open = true;
-    refreshDiary();
     return opened;
   }
 
@@ -202,33 +153,13 @@
     }, 650);
   }
 
-  function refreshDiary() {
-    var panel = document.querySelector('[data-diary]');
-    if (!panel) return;
-    var left = document.querySelectorAll('.entry.is-locked:not(.is-open)').length;
-    var done = document.querySelectorAll('.entry.is-locked.is-open').length;
-    var msg = panel.querySelector('.unlock-msg');
-    if (!left) {
-      panel.classList.add('is-waking');
-      setTimeout(function () {
-        panel.classList.add('is-open');
-        panel.querySelector('.locked-cover').hidden = true;
-        panel.querySelector('.diary-open').hidden = false;
-      }, done ? 500 : 0);
-    } else if (done) {
-      msg.textContent = left + ' more ' + (left === 1 ? 'entry is' : 'entries are') + ' locked with a different password.';
-    } else {
-      msg.textContent = left + (left === 1 ? ' entry is' : ' entries are') + ' napping in here.';
-    }
-  }
-
   function hookForms() {
     document.querySelectorAll('.locked form.unlock').forEach(function (form) {
       var box = form.closest('.locked');
       var input = form.querySelector('input[type="password"]');
       var button = form.querySelector('button');
       var msg = form.querySelector('.unlock-msg');
-      if (box.dataset.block !== undefined && !box.dataset.blob) {
+      if (!box.dataset.blob) {
         msg.textContent = 'nothing is locked in here yet.';
         input.disabled = button.disabled = true;
         return;
@@ -250,7 +181,7 @@
         } else {
           void box.offsetWidth;
           box.classList.add('is-wrong');
-          msg.textContent = ['nope, the cat is still asleep.', 'not quite. try again?', 'mrrp? wrong one.'][Math.floor(Math.random() * 3)];
+          msg.textContent = ['nope, still asleep.', 'not quite. try again?', 'hmm, wrong one :('][Math.floor(Math.random() * 3)];
           input.select();
         }
       });
@@ -260,11 +191,9 @@
     });
   }
 
-  window.MC = { lock: lock, unlock: unlock, saved: saved, remember: remember, forget: forget, render: render, typeset: typeset, moodFace: moodFace, MOODS: MOODS, EDIT: EDIT };
+  window.MC = { lock: lock, unlock: unlock, saved: saved, remember: remember, forget: forget, render: render, typeset: typeset, EDIT: EDIT };
 
-  paintMoods();
   hookForms();
-  refreshDiary();
   var known = saved();
   if (known.length) {
     document.documentElement.classList.add('is-owner');

@@ -5,19 +5,20 @@
 
 name: mathcosine
 author: thomas ni
-tagline: math, cats, and other stuff
+tagline: math, space, and other stuff <3
 description: thomas ni's little corner of the internet
 
 # the tabs along the top, in order.
 # to add one: make a new .md file (see HOW-TO-EDIT.md) and add it here.
+# a url starting with https:// links somewhere else (it opens in a new tab).
 # icons you can use are listed in HOW-TO-EDIT.md too.
 tabs:
   - title: home
     url: /
     icon: house
-  - title: diary
-    url: /diary/
-    icon: book
+  - title: blog
+    url: https://artofproblemsolving.com/community/c4146707
+    icon: pencil
   - title: notes
     url: /notes/
     icon: paper
@@ -46,9 +47,6 @@ kramdown:
   input: GFM
   math_engine: mathjax
 
-collections:
-  diary:
-    output: false
 
 exclude:
   - README.md

@@ -33,7 +33,7 @@ categories:
 #     link: https://example.com/sheet.pdf
 notes: []
 
-empty: nothing here yet. the cat is sitting where the handouts go.
+empty: nothing here yet. the aliens took the handouts.
 ---
 
 stuff i've written up. take whatever's useful.

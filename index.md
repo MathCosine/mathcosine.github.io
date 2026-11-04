@@ -4,7 +4,7 @@ title: home
 heading: hi! i'm thomas ni
 
 # the picture in the frame. put the file in assets/img/ and write its path here
-# (leave it empty for the cat-in-a-box)
+# (leave it empty for the little ufo)
 photo: assets/img/sky.jpg
 photo_alt: a painting of a lake between mountains under a pink, starry sky
 photo_caption: not a photo of me
@@ -41,10 +41,12 @@ i'm a stupid math enthusiast. my favorite kind of math is discrete, my favorite 
 real analysis, and my favorite way to do geometry is to give up and complex bash it.
 outside of math i like physics and sci bowl.
 
-i am a proud californian. go california! my favorite song is snowdin town by toby fox,
-with cutie mew mew by toby fox and camellia as a close runner-up. my favorite food is sushi,
-my favorite languages are latin and japanese (weird combo, i know), and my favorite animal
-is the cat, which you may have noticed.
+i am a proud californian. go california! i also like science fiction, which probably explains
+the space theme. my favorite song right now is cupid (twin ver.) by fifty fifty, with snowdin town
+and cutie mew mew as close runners-up. my favorite food is sushi, my favorite languages are latin
+and japanese (weird combo, i know), and my favorite animal is the cat.
 
-this site has my notes and handouts, a list of things i like, and a diary (locked, sorry).
-the tryhard stuff is locked too, down at the bottom. if we're friends, ask me for the password.
+this site has my notes and handouts and a list of things i like. i also have a
+[blog on aops](https://artofproblemsolving.com/community/c4146707) <3
+
+the tryhard stuff is locked, down at the bottom. if we're friends, ask me for the password :3

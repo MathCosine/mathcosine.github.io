@@ -5,30 +5,15 @@ permalink: /write/
 noindex: true
 script: /assets/js/write.js
 ---
-<h1 class="page-title">write something</h1>
-<p class="small-print">this page just makes the file for you. nothing is saved until you press <b>commit</b> on github.
-locked stuff gets scrambled right here in your browser, so the password never leaves this page.</p>
-
-<div class="seg" role="group" aria-label="what are you writing?">
-  <button type="button" data-mode="diary" aria-pressed="true">diary entry</button>
-  <button type="button" data-mode="block" aria-pressed="false">locked block</button>
-</div>
+<h1 class="page-title">lock something</h1>
+<p class="small-print">this page scrambles a block of text with a password, right here in your browser, so the password never leaves this page.
+nothing is saved until you paste the result on github and press <b>commit</b>.</p>
 
 <form class="writer" id="writer" novalidate>
-  <div class="row-2 only-diary">
-    <label>title <input type="text" id="w-title" placeholder="a normal tuesday"></label>
-    <label>date <input type="date" id="w-date"></label>
-  </div>
-
-  <fieldset class="moods only-diary">
-    <legend>mood</legend>
-    <div id="w-moods"></div>
-  </fieldset>
-
-  <label class="only-block">block name <input type="text" id="w-name" value="achievements" autocomplete="off" spellcheck="false"></label>
+  <label>block name <input type="text" id="w-name" value="achievements" autocomplete="off" spellcheck="false"></label>
 
   <label>words <span class="small-print">(markdown works. math too: <code>$x^2$</code> or <code>$$\sum 1/n^2$$</code>)</span>
-    <textarea id="w-body" rows="12" placeholder="today i..."></textarea>
+    <textarea id="w-body" rows="12" placeholder="the stuff i don't put on the front page..."></textarea>
   </label>
 
   <div>
@@ -36,15 +21,13 @@ locked stuff gets scrambled right here in your browser, so the password never le
     <div class="preview prose" id="w-preview"></div>
   </div>
 
-  <label class="check only-diary"><input type="checkbox" id="w-lock" checked> lock it with a password</label>
-
-  <div class="row-2 pw-fields">
+  <div class="row-2">
     <label>password <input type="password" id="w-pw" autocomplete="current-password"></label>
     <label id="w-pw2-wrap" hidden>type it again <input type="password" id="w-pw2" autocomplete="new-password"></label>
   </div>
 
   <p class="err" id="w-err" aria-live="polite" hidden></p>
-  <div class="btn-row"><button class="btn" type="submit">make the file</button></div>
+  <div class="btn-row"><button class="btn" type="submit">lock it</button></div>
 </form>
 
 <section class="out" id="w-out" hidden aria-live="polite">

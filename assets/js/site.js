@@ -1,4 +1,4 @@
-/* small cat behaviors: day/night, the cat on the card, paw prints, math */
+/* small space behaviors: day/night, the planet on the card, click sparkles, math */
 (function () {
   'use strict';
 
@@ -16,24 +16,25 @@
     });
   }
 
-  // the cat sitting on the card says things when you poke it
-  var cat = document.querySelector('.sit-cat');
-  var lines = ['mrrp?', 'meow', 'nya~', ':3', 'prrrr', 'feed me sushi', 'hi!!', 'mew'];
+  // the planet sitting on the card says things when you poke it
+  var mascot = document.querySelector('.mascot');
+  var lines = ['hi!!', '<3', ':3', 'beep boop', 'pew pew!', 'to the moon', 'hehe', 'zoom!', 'ur a star', '<333'];
   var timer;
-  if (cat) {
-    cat.querySelector('.hit').addEventListener('click', function (e) {
-      var bubble = cat.querySelector('.sit-bubble');
+  if (mascot) {
+    mascot.querySelector('.hit').addEventListener('click', function (e) {
+      var bubble = mascot.querySelector('.mascot-bubble');
       bubble.textContent = lines[Math.floor(Math.random() * lines.length)];
-      cat.classList.remove('is-talking');
-      void cat.offsetWidth;
-      cat.classList.add('is-talking');
+      mascot.classList.remove('is-talking');
+      void mascot.offsetWidth;
+      mascot.classList.add('is-talking');
       heart(e.clientX, e.clientY);
       clearTimeout(timer);
-      timer = setTimeout(function () { cat.classList.remove('is-talking'); }, 1600);
+      timer = setTimeout(function () { mascot.classList.remove('is-talking'); }, 1600);
     });
   }
 
   var HEART = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 20.6s-7.6-4.6-7.9-9.8C3.9 7.9 5.8 5.8 8.2 5.8c1.7 0 3 .9 3.8 2.4.8-1.5 2.1-2.4 3.8-2.4 2.4 0 4.3 2.1 4.1 5-.3 5.2-7.9 9.8-7.9 9.8z"/></svg>';
+  var STAR = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.4c.8 5.4 4.2 8.8 9.6 9.6-5.4.8-8.8 4.2-9.6 9.6-.8-5.4-4.2-8.8-9.6-9.6 5.4-.8 8.8-4.2 9.6-9.6z"/></svg>';
   function heart(x, y) {
     if (calm) return;
     var h = document.createElement('span');
@@ -45,27 +46,29 @@
     setTimeout(function () { h.remove(); }, 1200);
   }
 
-  // clicking on nothing in particular leaves a paw print
-  var PAW = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12.8c-3 0-5.6 2.7-5.6 4.8 0 1.6 1.3 2.5 2.8 2.5 1.1 0 1.8-.6 2.8-.6s1.7.6 2.8.6c1.5 0 2.8-.9 2.8-2.5 0-2.1-2.6-4.8-5.6-4.8z"/><ellipse cx="5.6" cy="10.4" rx="1.9" ry="2.4"/><ellipse cx="9.4" cy="6.6" rx="2" ry="2.6"/><ellipse cx="14.6" cy="6.6" rx="2" ry="2.6"/><ellipse cx="18.4" cy="10.4" rx="1.9" ry="2.4"/></svg>';
-  var busy = 'a, button, input, textarea, select, label, summary, pre, code, .sit-cat, .theme-toggle, .katex';
+  // clicking on nothing in particular leaves a little star or heart
+  var busy = 'a, button, input, textarea, select, label, summary, pre, code, .mascot, .katex';
   document.addEventListener('pointerdown', function (e) {
     if (calm || e.button !== 0 || e.target.closest(busy)) return;
     if (window.getSelection && String(window.getSelection())) return;
-    var p = document.createElement('span');
-    p.className = 'paw-stamp';
-    p.innerHTML = PAW;
-    p.style.left = e.pageX + 'px';
-    p.style.top = e.pageY + 'px';
-    p.style.setProperty('--r', (Math.random() * 50 - 25).toFixed(0) + 'deg');
-    document.body.appendChild(p);
-    setTimeout(function () { p.remove(); }, 1400);
+    var isHeart = Math.random() < .35;
+    var s = document.createElement('span');
+    s.className = 'stamp ' + (isHeart ? 'is-heart' : 'is-star');
+    s.innerHTML = isHeart ? HEART : STAR;
+    s.style.left = e.pageX + 'px';
+    s.style.top = e.pageY + 'px';
+    s.style.setProperty('--r', (Math.random() * 50 - 25).toFixed(0) + 'deg');
+    document.body.appendChild(s);
+    setTimeout(function () { s.remove(); }, 1300);
   });
 
-  // the yarn ball in the footer
-  var yarn = document.querySelector('.yarn');
-  if (yarn) {
-    yarn.addEventListener('click', function () {
-      yarn.classList.toggle('is-rolling');
+  // the rocket in the footer
+  var rocket = document.querySelector('.rocket');
+  if (rocket) {
+    rocket.addEventListener('click', function () {
+      rocket.classList.remove('is-launching');
+      void rocket.offsetWidth;
+      rocket.classList.add('is-launching');
     });
   }
 
