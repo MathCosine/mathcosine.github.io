@@ -18,12 +18,6 @@
 <script>
   // pick the theme before anything paints, so there's no flash
   try { var t = localStorage.getItem('mc-theme'); if (t) document.documentElement.setAttribute('data-theme', t); } catch (e) {}
-  window.SITE = {
-    base: {{ site.baseurl | jsonify }},
-    repo: {{ site.github_repo | jsonify }},
-    branch: {{ site.github_branch | jsonify }},
-    salt: {{ site.lock_salt | jsonify }}
-  };
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

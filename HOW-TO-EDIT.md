@@ -4,7 +4,7 @@ You can edit everything on github.com: open a file, press the pencil icon, chang
 
 ## going live
 
-The site is already on: anything you commit to `main` shows up at **https://mathcosine.github.io/** a minute or two later. If you ever rename the repo, the site moves to https://mathcosine.github.io/that-name/. In that case, set `baseurl: "/that-name"` and `github_repo` in `_config.yml` to match.
+The site is already on: anything you commit to `main` shows up at **https://mathcosine.github.io/** a minute or two later. If you ever rename the repo, the site moves to https://mathcosine.github.io/that-name/. In that case, set `baseurl: "/that-name"` in `_config.yml` to match.
 
 ## where everything lives
 
@@ -29,11 +29,7 @@ The picture gets cropped to fit the frame automatically, so you don't need to cr
 
 "The tryhard stuff" on the home page is locked with a password. It's scrambled (AES encryption) before it ever goes in the repo, so people can't read it even by looking at the code. They can only see that something locked is there.
 
-**Editing it:** unlock it on the site and press **edit**. The write page opens with it filled in. Change it, press **lock it**, copy the line it gives you, and paste it over the `achievements:` line in `_data/locked.yml` on github. (Once you've unlocked something, a **write** link also shows up at the bottom of every page, or go to `mathcosine.github.io/write/`.)
-
-**Changing the password:** do the same thing, but type the new password (twice) on the write page.
-
-**A new locked block** (like another hidden section): on the write page, give it a new name, write it, and press **lock it**. Paste the line into `_data/locked.yml`, then list it under `locked:` in `index.md`. You can also put `{% include locked.html name="yourname" %}` in any page.
+There's no edit button on the site, on purpose. To change what's in it (or the password), the text has to be unscrambled and locked again with the password, which can't be done by hand on github. Ask Claude to do it, saying what to change.
 
 The lock is only as strong as the password, so use a real one.
 
@@ -64,7 +60,7 @@ Then add it to `tabs:` in `_config.yml`. (A tab can also just link somewhere els
 ## math
 
 - In normal pages (`index.md`, `notes.md` and so on), write math as `$$x^2$$`. It works inline too.
-- In locked blocks, both `$x^2$` and `$$\sum 1/n^2$$` work. The write page shows a live preview.
+- In the locked block, both `$x^2$` and `$$\sum 1/n^2$$` work.
 
 ## preview on your own computer (optional)
 

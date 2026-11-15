@@ -7,7 +7,6 @@
 
   var ITERATIONS = 600000;
   var STORE = 'mc-passwords';
-  var EDIT = 'mc-edit';
   var te = new TextEncoder();
   var td = new TextDecoder();
   var keys = {};
@@ -35,14 +34,6 @@
         });
     }
     return keys[id];
-  }
-
-  async function lock(data, password, salt) {
-    salt = salt || toB64(crypto.getRandomValues(new Uint8Array(16)));
-    var iv = crypto.getRandomValues(new Uint8Array(12));
-    var key = await getKey(password, salt);
-    var out = await crypto.subtle.encrypt({ name: 'AES-GCM', iv: iv }, key, te.encode(JSON.stringify(data)));
-    return ['v1', salt, toB64(iv), toB64(out)].join('.');
   }
 
   async function unlock(blob, password) {
@@ -75,7 +66,6 @@
     var list = [password].concat(readStore('sessionStorage').filter(function (p) { return p !== password; }));
     writeStore('sessionStorage', list);
     if (forever) writeStore('localStorage', [password].concat(readStore('localStorage').filter(function (p) { return p !== password; })));
-    document.documentElement.classList.add('is-owner');
   }
   function forget() {
     try { sessionStorage.removeItem(STORE); } catch (e) { /* nothing to forget */ }
@@ -110,11 +100,6 @@
     else window.addEventListener('load', function () { if (window.renderMathInElement) window.renderMathInElement(el, MATH_OPTS); }, { once: true });
   }
 
-  function writeUrl(edit) {
-    try { sessionStorage.setItem(EDIT, JSON.stringify(edit)); } catch (e) { /* the write page will just start empty */ }
-    return (window.SITE ? window.SITE.base : '') + '/write/?edit=1';
-  }
-
   // ── opening things on the page ──
 
   function showBlock(el, data) {
@@ -122,9 +107,7 @@
     box.innerHTML = render(data.body);
     var tools = document.createElement('p');
     tools.className = 'locked-tools';
-    tools.innerHTML = '<a class="edit-it">edit</a><button class="linkish lock-again" type="button">lock again</button>';
-    tools.querySelector('.edit-it').href = writeUrl({ kind: 'block', name: el.dataset.block, body: data.body });
-    tools.querySelector('.edit-it').addEventListener('click', function () { writeUrl({ kind: 'block', name: el.dataset.block, body: data.body }); });
+    tools.innerHTML = '<button class="linkish lock-again" type="button">lock again</button>';
     box.appendChild(tools);
     typeset(box);
   }
@@ -191,12 +174,9 @@
     });
   }
 
-  window.MC = { lock: lock, unlock: unlock, saved: saved, remember: remember, forget: forget, render: render, typeset: typeset, EDIT: EDIT };
+  window.MC = { unlock: unlock, saved: saved, remember: remember, forget: forget, render: render, typeset: typeset };
 
   hookForms();
   var known = saved();
-  if (known.length) {
-    document.documentElement.classList.add('is-owner');
-    openAll(known);
-  }
+  if (known.length) openAll(known);
 })();
