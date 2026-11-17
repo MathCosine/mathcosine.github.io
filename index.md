@@ -17,6 +17,8 @@ highlights:
   - date: 2026
     text: 8th place in Theoretical Computer Science at the [Carnegie Mellon Informatics and Mathematics Competition](https://cmimc.math.cmu.edu/) (CMIMC).
   - date: 2026
+    text: Silver Division in the [USA Computing Olympiad](https://usaco.org/) (USACO).
+  - date: 2026
     text: Team 6th, Geometry 14th, and Combinatorics 20th at the Los Angeles Math Tournament (LAMT).
   - date: 2025–27
     text: Three-time AIME qualifier.

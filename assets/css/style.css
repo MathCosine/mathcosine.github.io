@@ -59,24 +59,21 @@ pre { background: var(--soft); padding: 12px 14px; border-radius: 4px; overflow-
 .skip { position: absolute; left: -999px; top: 8px; z-index: 50; background: #fff; padding: 6px 12px; }
 .skip:focus { left: 8px; }
 
-/* ── header: white, red line on top, name left, links right ── */
+/* ── header: red bar, name left, links right ── */
 
-.topbar {
-  position: sticky; top: 0; z-index: 20;
-  background: #fff; border-top: 4px solid var(--accent); border-bottom: 1px solid var(--rule);
-}
+.topbar { position: sticky; top: 0; z-index: 20; background: var(--accent); }
 .topbar-inner {
-  max-width: 1160px; margin: 0 auto; padding: 0 32px; min-height: 60px;
+  max-width: 1160px; margin: 0 auto; padding: 0 32px; min-height: 62px;
   display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 24px;
 }
-.brand { color: var(--head); font-size: 1.3rem; font-weight: 700; letter-spacing: -.01em; }
-.brand:hover { text-decoration: none; color: var(--accent); }
+.brand { color: #fff; font-size: 1.3rem; font-weight: 700; letter-spacing: -.01em; }
+.brand:hover { text-decoration: none; opacity: .85; }
 .topbar nav { display: flex; flex-wrap: wrap; gap: 4px 26px; }
 .topbar nav a {
-  padding: 4px 0; color: var(--muted); font-size: 1.02rem; white-space: nowrap;
+  padding: 4px 0; color: rgba(255, 255, 255, .88); font-size: 1.05rem; white-space: nowrap;
   border-bottom: 2px solid transparent;
 }
-.topbar nav a:hover, .topbar nav a[aria-current] { color: var(--accent); text-decoration: none; border-bottom-color: var(--accent); }
+.topbar nav a:hover, .topbar nav a[aria-current] { color: #fff; text-decoration: none; border-bottom-color: rgba(255, 255, 255, .8); }
 
 /* ── two columns: profile card + content ── */
 
