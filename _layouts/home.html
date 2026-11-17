@@ -11,11 +11,14 @@ layout: default
 {%- if page.highlights %}
 <section id="highlights">
   <h2>{{ page.highlights_title | default: "Highlights" }}</h2>
-  <ul class="dated">
+  <ol class="timeline">
+    {%- assign prev = "" %}
     {%- for h in page.highlights %}
-    <li><span class="when">[{{ h.date }}]</span> {{ h.text | markdownify | remove: "<p>" | remove: "</p>" | strip }}</li>
+    {%- assign d = h.date | append: "" %}
+    <li{% if d != prev %} class="new-year"{% endif %}><span class="when{% if d == prev %} is-repeat{% endif %}">{{ d }}</span><span class="what">{{ h.text | markdownify | remove: "<p>" | remove: "</p>" | strip }}</span></li>
+    {%- assign prev = d %}
     {%- endfor %}
-  </ul>
+  </ol>
 </section>
 {%- endif %}
 
@@ -44,13 +47,13 @@ layout: default
 {%- if site.contact %}
 <section id="contact">
   <h2>Contact</h2>
-  <div class="contact">
+  <dl class="contact">
     {%- for c in site.contact %}
-    <p><strong>{{ c.label }}:</strong>
-      {%- if c.email %}{% assign at = c.email | split: "@" %} <code>{{ at[0] }} (at) {{ at[1] }}</code>
-      {%- elsif c.url %} <a href="{{ c.url }}" target="_blank" rel="noopener">{{ c.text }}</a>
-      {%- else %} {{ c.text }}{% endif %}</p>
+    <div><dt>{{ c.label }}</dt><dd>
+      {%- if c.email %}{% assign at = c.email | split: "@" %}<code>{{ at[0] }} (at) {{ at[1] }}</code>
+      {%- elsif c.url %}<a href="{{ c.url }}" target="_blank" rel="noopener">{{ c.text }}</a>
+      {%- else %}{{ c.text }}{% endif %}</dd></div>
     {%- endfor %}
-  </div>
+  </dl>
 </section>
 {%- endif %}

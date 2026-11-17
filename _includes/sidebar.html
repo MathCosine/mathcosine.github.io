@@ -2,6 +2,7 @@
 {%- assign at = p.email | split: "@" -%}
 <aside class="profile">
   <img class="avatar" src="{{ p.photo | relative_url }}" alt="Photo of {{ site.name }}" width="180" height="180">
+  <div class="profile-text">
   {%- if page.url == "/" %}
   <h1 class="profile-name">{{ site.name }}</h1>
   {%- else %}
@@ -10,6 +11,7 @@
   <p class="profile-role">{{ p.role }}</p>
   <p class="profile-school">{{ p.school }}</p>
   <p class="profile-email">{{ at[0] }} (at) {{ at[1] }}</p>
+  </div>
   <ul class="profile-links">
     {%- for l in p.links %}
     <li><a href="{{ l.url }}"{% unless l.url contains "mailto:" %} target="_blank" rel="noopener"{% endunless %} aria-label="{{ l.label }}" title="{{ l.label }}">{% include icon.html name=l.icon %}</a></li>

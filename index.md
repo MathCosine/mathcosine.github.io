@@ -2,8 +2,8 @@
 layout: home
 title: Thomas Ni
 
-# the dated list under "Highlights", newest first.
-# **bold** and [links](https://...) work inside "text". if a text starts
+# the dated list under "Highlights", newest first. rows with the same date
+# are grouped under one year. **bold** and [links](https://...) work inside "text". if a text starts
 # with [ or contains ": ", wrap the whole text in "quotes".
 highlights:
   - date: 2026
@@ -16,6 +16,8 @@ highlights:
     text: 1st place in all team rounds and top 5% individually at the [Berkeley mini Math Tournament](https://berkeley.mt/).
   - date: 2026
     text: 8th place in Theoretical Computer Science at the [Carnegie Mellon Informatics and Mathematics Competition](https://cmimc.math.cmu.edu/) (CMIMC).
+  - date: 2026
+    text: Team 6th, Geometry 14th, and Combinatorics 20th at the Los Angeles Math Tournament (LAMT).
   - date: 2025–27
     text: Three-time AIME qualifier.
   - date: 2025
@@ -23,9 +25,11 @@ highlights:
   - date: 2025
     text: 2nd place in the General Round (individual) at the [Berkeley Math Tournament](https://berkeley.mt/).
   - date: 2025
-    text: 1st place in the Speed Round and 5th overall at MOAA.
+    text: International Silver Award at the [Canadian Open Mathematics Challenge](https://cms.math.ca/competitions/comc/) (COMC).
   - date: 2025
     text: Perfect score on the [CEMC Pascal Contest](https://cemc.uwaterloo.ca/).
+  - date: 2024
+    text: Bronze medal (25th of 37,500) at the [ClimateScience Olympiad](https://climatescience.org/olympiad).
 
 research:
   - title: Neural Network Models for Climate Prediction
