@@ -4,13 +4,10 @@
 {%- endcomment -%}
 {%- assign blob = site.data.locked[include.name] -%}
 <div class="locked" data-block="{{ include.name }}" data-blob="{{ blob | escape }}">
-<div class="locked-cover">
-{% include star-sleep.html %}
-<form class="unlock">
-<label for="pw-{{ include.name }}">{{ include.hint | default: "this part's napping. password?" }}</label>
-<div class="unlock-row"><input type="password" id="pw-{{ include.name }}" autocomplete="current-password" required><button class="btn" type="submit">wake up</button></div>
+<form class="unlock locked-cover">
+<label for="pw-{{ include.name }}">{{ include.hint | default: "This section is password-protected." }}</label>
+<div class="unlock-row"><input type="password" id="pw-{{ include.name }}" placeholder="Password" autocomplete="current-password" required><button class="btn" type="submit">Unlock</button></div>
 <p class="unlock-msg" aria-live="polite"></p>
 </form>
-</div>
 <div class="locked-content prose" hidden></div>
 </div>

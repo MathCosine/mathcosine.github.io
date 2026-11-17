@@ -1,66 +1,65 @@
 # how to edit this site
 
-You can edit everything on github.com: open a file, press the pencil icon, change it, then press **commit changes**. The site rebuilds itself in a minute or two.
-
-## going live
-
-The site is already on: anything you commit to `main` shows up at **https://mathcosine.github.io/** a minute or two later. If you ever rename the repo, the site moves to https://mathcosine.github.io/that-name/. In that case, set `baseurl: "/that-name"` in `_config.yml` to match.
+You can edit everything on github.com: open a file, press the pencil icon, change it, then press **commit changes**. The site at **https://mathcosine.github.io/** rebuilds itself about a minute later.
 
 ## where everything lives
 
 | to change... | edit this |
 | --- | --- |
-| your bio | `index.md`: the text below the second `---` |
-| the picture in the frame | upload it to `assets/img/`, then set `photo: assets/img/yourfile.jpg` in `index.md` (also `photo_caption`, and `photo_shape` for square vs. tall) |
-| email / links under "say hi" | `socials:` in `index.md` |
-| site name, tagline | `_config.yml` |
-| the tabs along the top (including the blog link) | `tabs:` in `_config.yml` |
-| favorites + "lately" | `favorites.md` |
-| notes & handouts (+ their categories) | `notes.md`, and put the pdfs in `files/` |
-| colors | top of `assets/css/style.css` (day colors first, then the night ones) |
+| About Me (your bio) | `index.md`: the text below the second `---` |
+| Highlights (the dated list) | `highlights:` at the top of `index.md` |
+| Research | `research:` at the top of `index.md` |
+| photo, name, school, email, icons on the left | `profile:` in `_config.yml` (photo file is `assets/img/thomas.jpg`) |
+| links in the red top bar | `nav:` in `_config.yml` |
+| Contact section | `contact:` in `_config.yml` |
+| notes & handouts | `notes.md`, and put the pdfs in `files/` |
+| colors and fonts | top of `assets/css/style.css` |
 
-**Handout categories:** at the top of `notes.md` there's a `categories:` list (name, icon, and an optional `about` line). Give each note a `category:` that matches one of the names. A new name you haven't listed just gets its own section at the bottom. A category only shows up once it has at least one note, and once there are two or more, little buttons appear at the top to filter by category.
+**Adding a highlight:** copy two lines like these into `highlights:` (newest at the top):
 
-The picture gets cropped to fit the frame automatically, so you don't need to crop it yourself. If the wrong part gets cut off, change `photo_focus` in `index.md`. `50% 20%` keeps more of the top and `50% 60%` keeps more of the bottom.
+```
+  - date: 2026
+    text: Perfect score on the AMC 10.
+```
 
-**One YAML gotcha:** in the bits between the `---` lines, if a value has a `: ` (colon + space) or starts with a special character, wrap it in quotes. For example, `thing: "re: zero"`.
+`text` can have **bold** and [links](https://example.com). If it starts with `[` or contains `: ` (colon + space), wrap the whole text in "quotes".
 
-## the locked stuff
+**Adding a research project:** same idea, under `research:`, with `title`, `kind` (like "Independent research"), `when` (like "Ongoing" or "2026"), and `text`.
 
-"The tryhard stuff" on the home page is locked with a password. It's scrambled (AES encryption) before it ever goes in the repo, so people can't read it even by looking at the code. They can only see that something locked is there.
+**Notes sections:** at the top of `notes.md` there's a `categories:` list. Give each note a `category:` that matches one of the names. A new name just gets its own section at the bottom. A section only shows up once it has at least one note, and once there are two or more, buttons appear at the top to filter by section.
+
+If the site breaks after an edit, it's almost always the spacing in the `---` part: every line in a list needs the same indentation as the ones around it.
+
+## the locked section
+
+"Other Honors & Activities" on the home page is locked with a password. It's scrambled (AES encryption) before it ever goes in the repo, so people can't read it even by looking at the code. They can only see that something locked is there.
 
 There's no edit button on the site, on purpose. To change what's in it (or the password), the text has to be unscrambled and locked again with the password, which can't be done by hand on github. Ask Claude to do it, saying what to change.
 
-The lock is only as strong as the password, so use a real one.
-
-## adding a new tab
+## adding a new page
 
 Make a new file, for example `projects.md`:
 
 ```
 ---
 layout: page
-title: projects
+title: Projects
 permalink: /projects/
 ---
 
-anything you want, in markdown.
+Anything you want, in markdown.
 ```
 
-Then add it to `tabs:` in `_config.yml`. (A tab can also just link somewhere else, like the blog tab does: give it a `url:` that starts with `https://` and it opens in a new tab.)
+Then add it to `nav:` in `_config.yml`:
 
 ```
-  - title: projects
+  - title: Projects
     url: /projects/
-    icon: star
 ```
-
-**Icons you can use:** house, book, paper, heart, star, sparkle, planet, rocket, moon, sun, paw, fish, music, mail, code, pencil, lock, yarn, sushi, speech, pi, atom, cap, link, leaf, graph
 
 ## math
 
-- In normal pages (`index.md`, `notes.md` and so on), write math as `$$x^2$$`. It works inline too.
-- In the locked block, both `$x^2$` and `$$\sum 1/n^2$$` work.
+Write math as `$$x^2$$` (it works inline too). In the locked section, `$x^2$` works as well.
 
 ## preview on your own computer (optional)
 

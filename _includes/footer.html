@@ -1,6 +1,3 @@
 <footer class="site-foot">
-  <p>made with &lt;3 by {{ site.author | default: site.name }}</p>
-  <p class="foot-bits">
-    <button class="rocket" type="button" aria-label="launch the rocket">{% include icon.html name="rocket" %}</button>
-  </p>
+  <p>&copy; {{ site.time | date: "%Y" }} {{ site.author | default: site.name }}. All rights reserved.</p>
 </footer>

@@ -1,38 +1,56 @@
 ---
 layout: default
 ---
-<div class="intro">
-  <figure class="polaroid" style="--focus: {{ page.photo_focus | default: '50% 35%' }}; --ratio: {{ page.photo_shape | default: '4 / 5' }}">
-    {% include moon-peek.html %}
-    {%- if page.photo and page.photo != "" %}
-    <img src="{{ page.photo | relative_url }}" alt="{{ page.photo_alt | default: 'a photo of me' }}">
-    {%- else %}
-    <div class="photo-soon">{% include ufo.html %}<span>picture soon</span></div>
-    {%- endif %}
-    <figcaption>{{ page.photo_caption | default: "me" }}</figcaption>
-  </figure>
-
-  <h1 class="page-title hello">{{ page.heading | default: site.name }}</h1>
+<section id="about">
+  <h2>About Me</h2>
   <div class="prose">
 {{ content }}
   </div>
-</div>
+</section>
 
-{%- if page.socials %}
-<section class="say-hi">
-  <h2>{{ page.socials_title | default: "say hi" }}</h2>
-  {%- if page.socials_intro %}<p>{{ page.socials_intro }}</p>{% endif %}
-  <ul class="socials">
-    {%- for s in page.socials %}
-    <li><span class="soc-label">{% include icon.html name=s.icon %}{{ s.label }}</span>{% if s.url %}<a href="{{ s.url }}">{{ s.text }}</a>{% else %}<span>{{ s.text }}</span>{% endif %}</li>
+{%- if page.highlights %}
+<section id="highlights">
+  <h2>{{ page.highlights_title | default: "Highlights" }}</h2>
+  <ul class="dated">
+    {%- for h in page.highlights %}
+    <li><span class="when">[{{ h.date }}]</span> {{ h.text | markdownify | remove: "<p>" | remove: "</p>" | strip }}</li>
     {%- endfor %}
   </ul>
 </section>
 {%- endif %}
 
+{%- if page.research %}
+<section id="research">
+  <h2>Research</h2>
+  {%- for r in page.research %}
+  <article class="work">
+    <h3>{{ r.title }}</h3>
+    <p class="work-meta">{{ r.kind }}{% if r.when %} · {{ r.when }}{% endif %}</p>
+    {%- if r.text %}
+    <p>{{ r.text | markdownify | remove: "<p>" | remove: "</p>" | strip }}</p>
+    {%- endif %}
+  </article>
+  {%- endfor %}
+</section>
+{%- endif %}
+
 {%- for block in page.locked %}
-<section class="locked-section">
+<section id="{{ block.name }}">
   <h2>{{ block.title }} {% include icon.html name="lock" %}</h2>
   {% include locked.html name=block.name hint=block.hint %}
 </section>
 {%- endfor %}
+
+{%- if site.contact %}
+<section id="contact">
+  <h2>Contact</h2>
+  <div class="contact">
+    {%- for c in site.contact %}
+    <p><strong>{{ c.label }}:</strong>
+      {%- if c.email %}{% assign at = c.email | split: "@" %} <code>{{ at[0] }} (at) {{ at[1] }}</code>
+      {%- elsif c.url %} <a href="{{ c.url }}" target="_blank" rel="noopener">{{ c.text }}</a>
+      {%- else %} {{ c.text }}{% endif %}</p>
+    {%- endfor %}
+  </div>
+</section>
+{%- endif %}

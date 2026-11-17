@@ -107,7 +107,7 @@
     box.innerHTML = render(data.body);
     var tools = document.createElement('p');
     tools.className = 'locked-tools';
-    tools.innerHTML = '<button class="linkish lock-again" type="button">lock again</button>';
+    tools.innerHTML = '<button class="linkish lock-again" type="button">Lock this section again</button>';
     box.appendChild(tools);
     typeset(box);
   }
@@ -122,18 +122,11 @@
       if (!r) continue;
       opened++;
       el.classList.add('is-open');
-      wake(el, function (target, data) { return function () { showBlock(target, data); }; }(el, r.data));
-    }
-    return opened;
-  }
-
-  function wake(el, then) {
-    el.classList.add('is-waking');
-    setTimeout(function () {
       el.querySelector('.locked-cover').hidden = true;
       el.querySelector('.locked-content').hidden = false;
-      then();
-    }, 650);
+      showBlock(el, r.data);
+    }
+    return opened;
   }
 
   function hookForms() {
@@ -143,7 +136,7 @@
       var button = form.querySelector('button');
       var msg = form.querySelector('.unlock-msg');
       if (!box.dataset.blob) {
-        msg.textContent = 'nothing is locked in here yet.';
+        msg.textContent = 'Nothing is locked here yet.';
         input.disabled = button.disabled = true;
         return;
       }
@@ -153,8 +146,8 @@
         if (!pw) return;
         button.disabled = true;
         var was = button.textContent;
-        button.textContent = 'waking…';
-        box.classList.remove('is-wrong');
+        button.textContent = 'Unlocking…';
+        msg.textContent = '';
         var opened = await openAll([pw]);
         button.disabled = false;
         button.textContent = was;
@@ -162,9 +155,7 @@
           remember(pw, false);
           input.value = '';
         } else {
-          void box.offsetWidth;
-          box.classList.add('is-wrong');
-          msg.textContent = ['nope, still asleep.', 'not quite. try again?', 'hmm, wrong one :('][Math.floor(Math.random() * 3)];
+          msg.textContent = 'Incorrect password.';
           input.select();
         }
       });

@@ -1,52 +1,55 @@
 ---
 layout: home
-title: home
-heading: hi! i'm thomas ni
+title: Thomas Ni
 
-# the picture in the frame. put the file in assets/img/ and write its path here
-# (leave it empty for the little ufo)
-photo: assets/img/sky.jpg
-photo_alt: a painting of a lake between mountains under a pink, starry sky
-photo_caption: not a photo of me
-# frame shape: 1 / 1 is square, 4 / 5 is a portrait. the picture gets cropped
-# to fit; "photo_focus" picks which part stays ("50% 20%" = more of the top)
-photo_shape: 1 / 1
-photo_focus: 50% 50%
+# the dated list under "Highlights", newest first.
+# **bold** and [links](https://...) work inside "text". if a text starts
+# with [ or contains ": ", wrap the whole text in "quotes".
+highlights:
+  - date: 2026
+    text: Perfect score on the AMC 10.
+  - date: 2026
+    text: Perfect score and 1st place at the [Bay Area Mathematical Olympiad](https://www.bamo.org/) (BAMO 8).
+  - date: 2026
+    text: Perfect score on the AMC 8.
+  - date: 2026
+    text: 1st place in all team rounds and top 5% individually at the [Berkeley mini Math Tournament](https://berkeley.mt/).
+  - date: 2026
+    text: 8th place in Theoretical Computer Science at the [Carnegie Mellon Informatics and Mathematics Competition](https://cmimc.math.cmu.edu/) (CMIMC).
+  - date: 2025–27
+    text: Three-time AIME qualifier.
+  - date: 2025
+    text: Founded the San Francisco Math Initiative, the student-run organization behind the [San Francisco Math Open](https://sfmathopen.org/) and [San Francisco Math Academy](https://sfmathacademy.com/). Our most recent contest had 150+ participants.
+  - date: 2025
+    text: 2nd place in the General Round (individual) at the [Berkeley Math Tournament](https://berkeley.mt/).
+  - date: 2025
+    text: 1st place in the Speed Round and 5th overall at MOAA.
+  - date: 2025
+    text: Perfect score on the [CEMC Pascal Contest](https://cemc.uwaterloo.ca/).
 
-socials_intro: roughly sorted by how fast i'll reply.
-socials:
-  - label: discord
-    text: mathcosine
-    icon: speech
-  - label: email
-    text: mathtomn@gmail.com
-    url: mailto:mathtomn@gmail.com
-    icon: mail
-  - label: github
-    text: MathCosine
-    url: https://github.com/MathCosine
-    icon: code
+research:
+  - title: Neural Network Models for Climate Prediction
+    kind: Independent research
+    when: Ongoing
+    text: A self-directed project on using neural network models for climate prediction.
 
-# password-locked bits under your bio. the scrambled text is in _data/locked.yml
+# password-locked sections. the scrambled text is in _data/locked.yml
 locked:
   - name: achievements
-    title: the tryhard stuff
-    hint: this part's for friends. know the password?
+    title: Other Honors & Activities
+    hint: This section is password-protected.
 ---
 
-i go by mathcosine on most of the internet. i'm a freshman at
-[stanford online high school](https://ohs.stanford.edu), class of 2030.
+I'm Thomas Ni, a ninth-grade student at [Stanford Online High School](https://ohs.stanford.edu/)
+(Class of 2030) interested in mathematics, physics, and machine learning. I go by MathCosine online.
 
-i'm a stupid math enthusiast. my favorite kind of math is discrete, my favorite class is
-real analysis, and my favorite way to do geometry is to give up and complex bash it.
-outside of math i like physics and sci bowl.
+I founded the San Francisco Math Initiative, a student-run organization that runs the
+[San Francisco Math Open](https://sfmathopen.org/) contest and the
+[San Francisco Math Academy](https://sfmathacademy.com/) prep programs. I also do independent
+research on neural network models for climate prediction, and I write a
+[blog](https://artofproblemsolving.com/community/c4146707) on Art of Problem Solving.
 
-i am a proud californian. go california! i also like science fiction, which probably explains
-the space theme. my favorite song right now is cupid (twin ver.) by fifty fifty, with snowdin town
-and cutie mew mew as close runners-up. my favorite food is sushi, my favorite languages are latin
-and japanese (weird combo, i know), and my favorite animal is the cat.
-
-this site has my notes and handouts and a list of things i like. i also have a
-[blog on aops](https://artofproblemsolving.com/community/c4146707) <3
-
-the tryhard stuff is locked, down at the bottom. if we're friends, ask me for the password :3
+Beyond mathematics, I enjoy physics, Science Bowl, and science fiction. My favorite area of math
+is discrete mathematics, my favorite class is real analysis, and complex bashing is my favorite
+way to solve geometry problems. I'm a proud Californian who likes sushi, cats, Latin, and Japanese;
+my current favorite song is *Cupid (Twin Ver.)* by FIFTY FIFTY.
