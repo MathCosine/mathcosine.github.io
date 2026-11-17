@@ -4,13 +4,13 @@
    ───────────────────────────────────────── */
 
 :root {
-  --accent: #135e66;        /* deep teal: top line, links, buttons */
-  --accent-dark: #0d464c;
+  --accent: #8c1515;        /* stanford cardinal: top line, links, years, buttons */
+  --accent-dark: #6e1010;
   --ink: #24292f;
   --muted: #5c6670;
   --head: #17222f;
   --rule: #e3e7ea;
-  --soft: #f4f7f8;
+  --soft: #f6f6f6;
   --serif: "Source Serif 4", "Iowan Old Style", Georgia, serif;
   --mono: "Source Code Pro", ui-monospace, SFMono-Regular, Menlo, monospace;
   --side: 280px;
@@ -34,7 +34,7 @@ a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
-/* section headings: a hairline with a short teal stroke under the title */
+/* section headings: a hairline with a short red stroke under the title */
 h2 {
   position: relative;
   display: flex; align-items: center; gap: .45rem;
@@ -59,7 +59,7 @@ pre { background: var(--soft); padding: 12px 14px; border-radius: 4px; overflow-
 .skip { position: absolute; left: -999px; top: 8px; z-index: 50; background: #fff; padding: 6px 12px; }
 .skip:focus { left: 8px; }
 
-/* ── header: white, teal line on top, name left, links right ── */
+/* ── header: white, red line on top, name left, links right ── */
 
 .topbar {
   position: sticky; top: 0; z-index: 20;
@@ -143,7 +143,7 @@ main > section + section { margin-top: 56px; }
 }
 .btn:hover { background: var(--accent-dark); }
 .btn[disabled] { opacity: .6; cursor: progress; }
-.unlock-msg { min-height: 1.3em; margin: 8px 0 0; font-size: .95rem; color: #a3261f; }
+.unlock-msg { min-height: 1.3em; margin: 8px 0 0; font-size: .95rem; color: var(--accent); }
 .locked.is-open { padding: 0; background: none; border: 0; }
 .locked-content > :first-child { margin-top: 0; }
 .locked-tools { margin: 18px 0 0 !important; font-size: .95rem; }
