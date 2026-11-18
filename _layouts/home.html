@@ -2,10 +2,17 @@
 layout: default
 ---
 <section id="about">
-  <h2>About Me</h2>
-  <div class="prose">
+  <h2>{{ page.about_title | default: "About" }}</h2>
+  <div class="lead prose">
 {{ content }}
   </div>
+  {%- if page.facts %}
+  <dl class="facts">
+    {%- for f in page.facts %}
+    <div><dt>{{ f.label }}</dt><dd>{{ f.text | markdownify | remove: "<p>" | remove: "</p>" | strip }}</dd></div>
+    {%- endfor %}
+  </dl>
+  {%- endif %}
 </section>
 
 {%- if page.highlights %}

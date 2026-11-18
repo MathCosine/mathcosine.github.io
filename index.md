@@ -39,6 +39,22 @@ research:
     when: Ongoing
     text: A self-directed project on using neural network models for climate prediction.
 
+# the "at a glance" table under your intro. add, remove, or reorder rows freely.
+# *italics*, **bold** and [links](https://...) work inside "text".
+facts:
+  - label: Interests
+    text: Discrete math, real analysis, physics, and machine learning
+  - label: Research
+    text: Neural network models for climate prediction (independent)
+  - label: Writing
+    text: A [blog](https://artofproblemsolving.com/community/c4146707) on Art of Problem Solving
+  - label: Also into
+    text: Science Bowl, science fiction, Latin, and Japanese
+  - label: Favorites
+    text: Sushi, cats, and *Cupid (Twin Ver.)* by FIFTY FIFTY
+  - label: Go-to trick
+    text: Complex bashing
+
 # password-locked sections. the scrambled text is in _data/locked.yml
 locked:
   - name: achievements
@@ -46,16 +62,7 @@ locked:
     hint: This section is password-protected.
 ---
 
-I'm Thomas Ni, a ninth-grade student at [Stanford Online High School](https://ohs.stanford.edu/)
-(Class of 2030) interested in mathematics, physics, and machine learning. I go by MathCosine online.
-
-I founded the San Francisco Math Initiative, a student-run organization that runs the
-[San Francisco Math Open](https://sfmathopen.org/) contest and the
-[San Francisco Math Academy](https://sfmathacademy.com/) prep programs. I also do independent
-research on neural network models for climate prediction, and I write a
-[blog](https://artofproblemsolving.com/community/c4146707) on Art of Problem Solving.
-
-Beyond mathematics, I enjoy physics, Science Bowl, and science fiction. My favorite area of math
-is discrete mathematics, my favorite class is real analysis, and complex bashing is my favorite
-way to solve geometry problems. I'm a proud Californian who likes sushi, cats, Latin, and Japanese;
-my current favorite song is *Cupid (Twin Ver.)* by FIFTY FIFTY.
+Hi! I'm Thomas, a freshman at [Stanford Online High School](https://ohs.stanford.edu/)
+(Class of 2030) and a proud Californian. I do competition math and run the San Francisco
+Math Initiative, which I founded to organize the [San Francisco Math Open](https://sfmathopen.org/)
+and [San Francisco Math Academy](https://sfmathacademy.com/). Online, I go by MathCosine.

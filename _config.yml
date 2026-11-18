@@ -28,7 +28,7 @@ profile:
 # "/#something" jumps to that section of the home page;
 # a full https:// link opens in a new tab.
 nav:
-  - title: Bio
+  - title: About
     url: /#about
   - title: Highlights
     url: /#highlights

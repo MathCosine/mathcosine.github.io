@@ -64,10 +64,8 @@ pre { background: var(--soft); padding: 12px 14px; border-radius: 4px; overflow-
 .topbar { position: sticky; top: 0; z-index: 20; background: var(--accent); }
 .topbar-inner {
   max-width: 1160px; margin: 0 auto; padding: 0 32px; min-height: 62px;
-  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 24px;
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 6px 24px;
 }
-.brand { color: #fff; font-size: 1.3rem; font-weight: 700; letter-spacing: -.01em; }
-.brand:hover { text-decoration: none; opacity: .85; }
 .topbar nav { display: flex; flex-wrap: wrap; gap: 4px 26px; }
 .topbar nav a {
   padding: 4px 0; color: rgba(255, 255, 255, .88); font-size: 1.05rem; white-space: nowrap;
@@ -117,10 +115,14 @@ main > section + section { margin-top: 56px; }
 .work p { margin: 0; }
 .work + .work { margin-top: 1.4rem; }
 
-.contact { display: grid; gap: 4px; margin: 0; }
-.contact div { display: grid; grid-template-columns: 8.6rem minmax(0, 1fr); gap: 18px; }
-.contact dt { color: var(--muted); }
-.contact dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
+.lead { margin: 0 0 1.1rem; font-size: 1.14rem; line-height: 1.7; }
+.lead p { margin: 0 0 .7em; }
+.lead > :last-child { margin-bottom: 0; }
+.facts, .contact { display: grid; gap: 4px; margin: 0; }
+.facts { padding: 14px 18px; background: var(--soft); border-radius: 6px; }
+.facts div, .contact div { display: grid; grid-template-columns: 8.6rem minmax(0, 1fr); gap: 18px; }
+.facts dt, .contact dt { color: var(--muted); }
+.facts dd, .contact dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
 
 /* ── password-locked section ── */
 
@@ -189,7 +191,6 @@ main > section + section { margin-top: 56px; }
 @media (max-width: 900px) {
   :root { --year: 5.6rem; }
   .topbar-inner { padding: 10px 20px; justify-content: center; }
-  .brand { width: 100%; text-align: center; }
   .topbar nav { justify-content: center; gap: 2px 18px; }
   .page { grid-template-columns: 1fr; gap: 40px; padding: 32px 20px 20px; }
   .profile { position: static; display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: 4px 18px; align-items: center; }
@@ -198,7 +199,7 @@ main > section + section { margin-top: 56px; }
   .profile-links { margin: 6px 0 0; grid-column: 2; }
   .profile-email { overflow-wrap: anywhere; }
   .timeline li, .contact div { gap: 12px; }
-  .contact div { grid-template-columns: 7.6rem minmax(0, 1fr); }
+  .facts div, .contact div { grid-template-columns: 7.6rem minmax(0, 1fr); }
   main > section + section { margin-top: 44px; }
   .site-foot { display: block; padding: 18px 20px 72px; }
 }
