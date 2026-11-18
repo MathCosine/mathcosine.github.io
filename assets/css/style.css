@@ -115,14 +115,11 @@ main > section + section { margin-top: 56px; }
 .work p { margin: 0; }
 .work + .work { margin-top: 1.4rem; }
 
-.lead { margin: 0 0 1.1rem; font-size: 1.14rem; line-height: 1.7; }
-.lead p { margin: 0 0 .7em; }
-.lead > :last-child { margin-bottom: 0; }
-.facts, .contact { display: grid; gap: 4px; margin: 0; }
-.facts { padding: 14px 18px; background: var(--soft); border-radius: 6px; }
-.facts div, .contact div { display: grid; grid-template-columns: 8.6rem minmax(0, 1fr); gap: 18px; }
-.facts dt, .contact dt { color: var(--muted); }
-.facts dd, .contact dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
+.lead > p:first-child { font-size: 1.16rem; color: var(--head); }
+.contact { display: grid; gap: 4px; margin: 0; }
+.contact div { display: grid; grid-template-columns: 8.6rem minmax(0, 1fr); gap: 18px; }
+.contact dt { color: var(--muted); }
+.contact dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
 
 /* ── password-locked section ── */
 
@@ -199,7 +196,7 @@ main > section + section { margin-top: 56px; }
   .profile-links { margin: 6px 0 0; grid-column: 2; }
   .profile-email { overflow-wrap: anywhere; }
   .timeline li, .contact div { gap: 12px; }
-  .facts div, .contact div { grid-template-columns: 7.6rem minmax(0, 1fr); }
+  .contact div { grid-template-columns: 7.6rem minmax(0, 1fr); }
   main > section + section { margin-top: 44px; }
   .site-foot { display: block; padding: 18px 20px 72px; }
 }

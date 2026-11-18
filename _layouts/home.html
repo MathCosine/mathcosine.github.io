@@ -6,13 +6,6 @@ layout: default
   <div class="lead prose">
 {{ content }}
   </div>
-  {%- if page.facts %}
-  <dl class="facts">
-    {%- for f in page.facts %}
-    <div><dt>{{ f.label }}</dt><dd>{{ f.text | markdownify | remove: "<p>" | remove: "</p>" | strip }}</dd></div>
-    {%- endfor %}
-  </dl>
-  {%- endif %}
 </section>
 
 {%- if page.highlights %}

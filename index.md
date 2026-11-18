@@ -39,22 +39,6 @@ research:
     when: Ongoing
     text: A self-directed project on using neural network models for climate prediction.
 
-# the "at a glance" table under your intro. add, remove, or reorder rows freely.
-# *italics*, **bold** and [links](https://...) work inside "text".
-facts:
-  - label: Interests
-    text: Discrete math, real analysis, physics, and machine learning
-  - label: Research
-    text: Neural network models for climate prediction (independent)
-  - label: Writing
-    text: A [blog](https://artofproblemsolving.com/community/c4146707) on Art of Problem Solving
-  - label: Also into
-    text: Science Bowl, science fiction, Latin, and Japanese
-  - label: Favorites
-    text: Sushi, cats, and *Cupid (Twin Ver.)* by FIFTY FIFTY
-  - label: Go-to trick
-    text: Complex bashing
-
 # password-locked sections. the scrambled text is in _data/locked.yml
 locked:
   - name: achievements
@@ -66,3 +50,12 @@ Hi! I'm Thomas, a freshman at [Stanford Online High School](https://ohs.stanford
 (Class of 2030) and a proud Californian. I do competition math and run the San Francisco
 Math Initiative, which I founded to organize the [San Francisco Math Open](https://sfmathopen.org/)
 and [San Francisco Math Academy](https://sfmathacademy.com/). Online, I go by MathCosine.
+
+My favorite area of math is discrete math, my favorite class is real analysis, and my go-to
+trick for geometry is complex bashing. I'm also into physics and machine learning, and I'm doing
+independent research on neural network models for climate prediction. I keep a
+[blog](https://artofproblemsolving.com/community/c4146707) on Art of Problem Solving, too.
+
+Outside of math, I like Science Bowl, science fiction, Latin, and Japanese, along with sushi and
+cats. My newfound hobby is listening to TWICE, and my current favorite song is
+*Cupid (Twin Ver.)* by FIFTY FIFTY.

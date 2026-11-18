@@ -7,7 +7,6 @@ You can edit everything on github.com: open a file, press the pencil icon, chang
 | to change... | edit this |
 | --- | --- |
 | About (your intro) | `index.md`: the text below the second `---` |
-| the "at a glance" table under it | `facts:` at the top of `index.md` |
 | Highlights (the dated list) | `highlights:` at the top of `index.md` |
 | Research | `research:` at the top of `index.md` |
 | photo, name, school, email, icons on the left | `profile:` in `_config.yml` (photo file is `assets/img/thomas.jpg`) |
