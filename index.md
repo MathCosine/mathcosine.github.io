@@ -15,6 +15,8 @@ highlights:
   - date: 2026
     text: 1st place in all team rounds and top 5% individually at the [Berkeley mini Math Tournament](https://berkeley.mt/).
   - date: 2026
+    text: 10th place in Combinatorics (Division B) at the Princeton University Mathematics Competition (PUMaC).
+  - date: 2026
     text: 8th place in Theoretical Computer Science at the [Carnegie Mellon Informatics and Mathematics Competition](https://cmimc.math.cmu.edu/) (CMIMC).
   - date: 2026
     text: Silver Division in the [USA Computing Olympiad](https://usaco.org/) (USACO).
