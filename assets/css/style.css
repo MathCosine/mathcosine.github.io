@@ -83,7 +83,7 @@ pre { background: var(--soft); padding: 12px 14px; border-radius: 4px; overflow-
 .profile { position: sticky; top: 108px; align-self: start; }
 .profile p { margin: 0; }
 .avatar { display: block; width: 168px; height: 168px; border-radius: 14px; object-fit: cover; }
-.profile-name { margin: 20px 0 8px; color: var(--head); font-size: 1.85rem; font-weight: 700; line-height: 1.15; letter-spacing: -.01em; }
+.profile .profile-name { margin: 20px 0 8px; color: var(--head); font-size: 1.85rem; font-weight: 700; line-height: 1.15; letter-spacing: -.01em; }
 .profile-name a { color: inherit; }
 .profile-role { color: var(--ink); font-size: 1.08rem; }
 .profile-school { color: var(--muted); font-size: 1.02rem; }
@@ -192,7 +192,7 @@ main > section + section { margin-top: 56px; }
   .page { grid-template-columns: 1fr; gap: 40px; padding: 32px 20px 20px; }
   .profile { position: static; display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: 4px 18px; align-items: center; }
   .avatar { width: 112px; height: 112px; grid-row: span 2; }
-  .profile-name { margin: 0 0 4px; font-size: 1.6rem; }
+  .profile .profile-name { margin: 0 0 4px; font-size: 1.6rem; }
   .profile-links { margin: 6px 0 0; grid-column: 2; }
   .profile-email { overflow-wrap: anywhere; }
   .timeline li, .contact div { gap: 12px; }
