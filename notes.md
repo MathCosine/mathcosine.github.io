@@ -35,6 +35,12 @@ notes:
     date: 2026-11-24
     tag: Real and Complex Analysis
     note: "A handout for a presentation I gave in my Real and Complex Analysis course: continuity and uniform continuity on metric spaces, the open-set characterization, and continuous functions on compact sets."
+  - title: Connectedness on Metric Spaces
+    category: Mathematics
+    file: files/connectedness-on-metric-spaces.pdf
+    date: 2026-11-24
+    tag: Real and Complex Analysis
+    note: "A handout for a presentation I gave in my Real and Complex Analysis course: connected and disconnected sets in metric spaces, continuous images of connected sets, and the intermediate value property."
 
 empty: Nothing here yet.
 ---
